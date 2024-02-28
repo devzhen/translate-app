@@ -15,11 +15,6 @@
   z-index: 1;
 }
 
-.cardWrapper {
-  display: flex;
-  flex-direction: column;
-}
-
 @media (min-width: 641px) {
   .contentWrapper {
     padding-left: 72px;
