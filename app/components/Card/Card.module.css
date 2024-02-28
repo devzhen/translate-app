@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #212936cc;
+  border-radius: 8px;
+  border: 1px solid #394150;
+  min-height: 100px;
+}
