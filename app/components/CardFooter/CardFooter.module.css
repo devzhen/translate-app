@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  padding-top: 14px;
+}
+
+.button {
+  max-height: 34px;
+  padding: 4px 6px;
+  background-color: inherit;
+  border-radius: 10px;
+  border: 1px solid #f9fafb;
+  cursor: pointer;
+}
+
+.button:active {
+  opacity: 0.6;
+}
+
+.buttonCopy {
+  margin-left: 10px;
+}

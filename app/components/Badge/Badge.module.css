@@ -1,0 +1,26 @@
+.container {
+  padding: 12px;
+  border-radius: 8px;
+  background-color: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.container:active {
+  opacity: 0.6;
+}
+
+.container span {
+  color: #6e727f;
+  font-size: 14px;
+}
+
+.containerActive {
+  background-color: #4d5562;
+}
+
+.containerActive span {
+  color: #f9fafb;
+  font-weight: 500;
+}

@@ -1,0 +1,12 @@
+.container {
+  margin-left: auto;
+  padding: 0 10px;
+  background-color: inherit;
+  border-radius: 12px;
+  border: 1px solid #f9fafb;
+  cursor: pointer;
+}
+
+.container:active {
+  opacity: 0.6;
+}
