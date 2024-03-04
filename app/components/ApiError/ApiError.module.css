@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  min-width: 400px;
+  margin: 0 auto;
+  background-color: #212936cc;
+  border-radius: 20px;
+  border: 1px solid #394150;
+  padding: 24px;
+  color: #f9fafb;
+}
+
+.container h5 {
+  margin-top: 20px;
+}
+
+.container span {
+  margin-top: 20px;
+}

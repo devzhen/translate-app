@@ -1,5 +1,5 @@
 export const SYSTRAN_ENDPOINT = 'https://api-translate.systran.net/translation';
-export const SYSTRAN_KEY = process.env.SYSTRAN_KEY || '1fd387f0-2163-4fc1-917d-09d3a5324641';
+export const SYSTRAN_KEY = process.env.SYSTRAN_KEY;
 
 export const CARD_TYPE = {
   left: 'left',
