@@ -21,6 +21,7 @@ const TextArea = (props: TextAreaProps) => {
         contentEditable={type === CARD_TYPE.left}
         onChange={onChange}
         value={text}
+        disabled={type === CARD_TYPE.right}
       />
       {type === CARD_TYPE.left && (
         <span>

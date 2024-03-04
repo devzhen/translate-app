@@ -10,3 +10,8 @@
 .container:active {
   opacity: 0.6;
 }
+
+.container:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

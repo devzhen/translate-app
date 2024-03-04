@@ -1,22 +1,16 @@
-import { v4 as uuid } from 'uuid';
+export const SYSTRAN_ENDPOINT = 'https://api-translate.systran.net/translation';
+export const SYSTRAN_KEY = process.env.SYSTRAN_KEY || '1fd387f0-2163-4fc1-917d-09d3a5324641';
 
 export const CARD_TYPE = {
   left: 'left',
   right: 'right',
 } as const;
 
-export const INITIAL_BADGES = {
-  [CARD_TYPE.left]: [
-    { id: uuid(), text: 'English', isActive: true },
-    { id: uuid(), text: 'French', isActive: false },
-    { id: uuid(), text: 'Spanish', isActive: false },
-  ],
-  [CARD_TYPE.right]: [
-    { id: uuid(), text: 'English', isActive: false },
-    { id: uuid(), text: 'French', isActive: true },
-    { id: uuid(), text: 'Spanish', isActive: false },
-  ],
-} as const;
-
 export const MIN_INPUT_LENGTH = 3;
 export const MAX_INPUT_LENGTH = 500;
+export const INPUT_DEBOUNCE = 500;
+
+export const INITIAL_TRANSLATION_STATE = {
+  input: 'Hello, how are you',
+  translation: 'Bonjour, comment allez-vous ?',
+};

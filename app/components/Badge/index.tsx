@@ -3,10 +3,11 @@ import styles from './Badge.module.css';
 type BadgeProps = {
   text: string;
   isActive?: boolean;
+  onClick: () => void;
 };
 
 function Badge(props: BadgeProps) {
-  const { text, isActive = false } = props;
+  const { text, isActive = false, onClick } = props;
 
   const classNames = [styles.container];
 
@@ -15,7 +16,7 @@ function Badge(props: BadgeProps) {
   }
 
   return (
-    <button className={classNames.join(' ')}>
+    <button className={classNames.join(' ')} onClick={onClick}>
       <span>{text}</span>
     </button>
   );

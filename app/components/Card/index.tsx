@@ -1,7 +1,7 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent } from 'react';
 
 import { MAX_INPUT_LENGTH, MIN_INPUT_LENGTH } from '@/app/constants';
-import { BadgesType, CardType } from '@/app/types';
+import { CardType } from '@/app/types';
 
 import CardFooter from '../CardFooter';
 import CardHeader from '../CardHeader';
@@ -11,53 +11,54 @@ import styles from './Card.module.css';
 
 type CardProps = {
   type: CardType;
-  badges: BadgesType;
+  badges: {
+    text: string[];
+    active: boolean[];
+    source: string[];
+  };
   onSwap: () => void;
-  translate: (text: string) => void;
+  translate: () => void;
+  input: string;
+  copyText: () => void;
+  getSound: () => void;
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  isLoading?: boolean;
+  onBadgeClick: (source: string) => void;
+  isSwapDisabled?: boolean;
 };
 
 function Card(props: CardProps) {
-  const { type, badges, onSwap, translate } = props;
-
-  const [text, setText] = useState('Bonjour, comment allez-vous?');
-
-  const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    const value = e.target.value;
-
-    if (value.length > MAX_INPUT_LENGTH) {
-      e.preventDefault();
-
-      return;
-    }
-
-    setText(value);
-  };
-
-  const translateHandler = () => {
-    translate(text);
-  };
-
-  const copyText = () => {
-    navigator.clipboard.writeText(text);
-  };
-
-  const getSound = () => {
-    const utterance = new SpeechSynthesisUtterance();
-    utterance.text = text;
-
-    speechSynthesis.speak(utterance);
-  };
+  const {
+    type,
+    badges,
+    onSwap,
+    translate,
+    input,
+    copyText,
+    getSound,
+    onChange,
+    isLoading,
+    onBadgeClick,
+    isSwapDisabled,
+  } = props;
 
   return (
     <div className={styles.container} data-type={type}>
-      <CardHeader badges={badges} type={type} onSwap={onSwap} />
-      <TextArea type={type} text={text} onChange={onChangeHandler} />
+      <CardHeader
+        badges={badges}
+        type={type}
+        onSwap={onSwap}
+        onBadgeClick={onBadgeClick}
+        isSwapDisabled={isSwapDisabled}
+      />
+      <TextArea type={type} text={input} onChange={onChange} />
       <CardFooter
         getSound={getSound}
         copyText={copyText}
         type={type}
-        translate={translateHandler}
-        disabled={text.length < MIN_INPUT_LENGTH || text.length > MAX_INPUT_LENGTH}
+        translate={translate}
+        disabled={input.length < MIN_INPUT_LENGTH || input.length > MAX_INPUT_LENGTH}
+        isLoading={isLoading}
       />
     </div>
   );

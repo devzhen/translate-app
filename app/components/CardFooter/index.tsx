@@ -13,10 +13,11 @@ type HeaderProps = {
   translate: () => void;
   type: CardType;
   disabled: boolean;
+  isLoading?: boolean;
 };
 
 function CardFooter(props: HeaderProps) {
-  const { getSound, copyText, type, translate, disabled } = props;
+  const { getSound, copyText, type, translate, disabled, isLoading } = props;
 
   return (
     <div className={styles.container}>
@@ -26,7 +27,9 @@ function CardFooter(props: HeaderProps) {
       <button className={`${styles.button} ${styles.buttonCopy}`} onClick={copyText}>
         <Image src="/copy.svg" width={20} height={20} alt="Img" draggable={false} />
       </button>
-      {type === CARD_TYPE.left && <TranslateButton translate={translate} disabled={disabled} />}
+      {type === CARD_TYPE.left && (
+        <TranslateButton translate={translate} disabled={disabled} isLoading={isLoading} />
+      )}
     </div>
   );
 }
